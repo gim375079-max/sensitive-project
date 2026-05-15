@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FROM TEXT TO FEELING | AI 감성 분석</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">AI ANALYTICS</div>
+            <div class="status-indicator" id="statusIndicator">
+                <span class="status-dot"></span>
+                <span class="status-text">SYSTEM READY</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">FROM TEXT<br>TO FEELING</h1>
+                <p class="hero-subtitle">문장을 입력하면 AI가 감성을 분석합니다.</p>
+            </div>
+        </section>
+
+        <section class="analysis-section">
+            <div class="container">
+                <div class="panel input-panel">
+                    <textarea id="inputText" placeholder="분석할 텍스트를 이곳에 입력하세요..." maxlength="1000"></textarea>
+                    <div class="panel-footer">
+                        <span class="char-count"><span id="currentCharCount">0</span> / 1000</span>
+                        <button id="analyzeBtn" class="btn btn-primary">분석하기</button>
+                    </div>
+                </div>
+
+                <div id="loading" class="loading-box hidden">
+                    <div class="spinner"></div>
+                    <p>분석 중...</p>
+                </div>
+
+                <div id="resultCard" class="panel result-panel hidden">
+                    <div class="result-header">
+                        <span class="result-label">ANALYSIS RESULT</span>
+                        <div id="sentimentBadge" class="badge">POSITIVE</div>
+                    </div>
+                    <div class="result-body">
+                        <div class="confidence-section">
+                            <span class="confidence-label">신뢰도</span>
+                            <div class="progress-bar">
+                                <div id="confidenceBar" class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span id="confidenceValue" class="confidence-percent">0%</span>
+                        </div>
+                        <div class="reason-section">
+                            <span class="reason-label">분석 이유</span>
+                            <p id="reasonText" class="reason-content"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="errorBox" class="error-box hidden">
+                    <p id="errorMessage"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 FROM TEXT TO FEELING. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
